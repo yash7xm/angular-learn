@@ -6,7 +6,7 @@ import {
   getDOM,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-NDHEGE46.js";
+} from "./chunk-35OHZLTR.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -90,7 +90,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-SZVKY3KA.js";
+} from "./chunk-OSQAIMCL.js";
 import {
   __async,
   __objRest,
@@ -4663,6 +4663,7 @@ function provideClientHydration(...features) {
 var VERSION = new Version("20.3.6");
 
 export {
+  HttpClient,
   EventManagerPlugin,
   DomEventsPlugin,
   EVENT_MANAGER_PLUGINS,
@@ -4712,4 +4713,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-CYMDDJKP.js.map
+//# sourceMappingURL=chunk-RDM65AQ4.js.map

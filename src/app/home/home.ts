@@ -16,7 +16,7 @@ export class Home {
   paginatedLocations: HousingLocationInfo[] = [];
 
   // Pagination variables
-  pageSize = 5;
+  pageSize = 6;
   currentPage = 0;
   totalItems = 0;
 

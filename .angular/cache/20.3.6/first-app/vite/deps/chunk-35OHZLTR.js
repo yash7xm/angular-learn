@@ -56,7 +56,7 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-SZVKY3KA.js";
+} from "./chunk-OSQAIMCL.js";
 import {
   __async,
   __spreadProps,
@@ -4996,6 +4996,8 @@ function booleanOrUrlAttribute(value) {
 }
 
 export {
+  parseCookieValue,
+  XhrFactory,
   getDOM,
   setRootDomAdapter,
   DomAdapter,
@@ -5007,8 +5009,6 @@ export {
   NgClass,
   NgTemplateOutlet,
   CommonModule,
-  parseCookieValue,
-  XhrFactory,
   PLATFORM_BROWSER_ID,
   isPlatformBrowser,
   ViewportScroller
@@ -5026,4 +5026,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-NDHEGE46.js.map
+//# sourceMappingURL=chunk-35OHZLTR.js.map

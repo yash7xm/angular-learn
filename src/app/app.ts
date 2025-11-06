@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router'
   selector: 'app-root',
   imports: [RouterModule],
   template: `
-    <main>
+    <main class="main-div">
       <a [routerLink]="['/']">
         <header class="brand-name">
           <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
