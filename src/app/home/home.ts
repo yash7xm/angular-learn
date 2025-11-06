@@ -1,7 +1,7 @@
 import { Component, inject, ViewChild } from '@angular/core';
 import { HousingLocation } from '../housing-location/housing-location';
 import { HousingLocationInfo } from '../housinglocation';
-import { HousingService } from '../housing';
+import { HousingService } from '../housing.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
