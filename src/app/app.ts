@@ -24,6 +24,12 @@ import { MatIconModule } from '@angular/material/icon';
         <mat-icon>favorite</mat-icon>
         Wishlist
       </a>
+
+      <!-- Auth Buttons -->
+      <div class="auth-buttons">
+        <a routerLink="/login" class="btn login-btn">Login</a>
+        <a routerLink="/register" class="btn register-btn">Register</a>
+      </div>
     </div>
   </nav>
 
@@ -32,7 +38,6 @@ import { MatIconModule } from '@angular/material/icon';
     <router-outlet></router-outlet>
   </section>
 </main>
-
   `,
   styleUrls: ['./app.css'],
 })

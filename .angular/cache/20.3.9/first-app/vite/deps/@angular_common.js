@@ -55,7 +55,6 @@ import {
   VERSION,
   ViewportScroller,
   WeekDay,
-  XhrFactory,
   formatCurrency,
   formatDate,
   formatNumber,
@@ -85,7 +84,6 @@ import {
   isPlatformBrowser,
   isPlatformServer,
   normalizeQueryParams,
-  parseCookieValue,
   provideCloudflareLoader,
   provideCloudinaryLoader,
   provideImageKitLoader,
@@ -93,11 +91,16 @@ import {
   provideNetlifyLoader,
   registerLocaleData,
   setRootDomAdapter
-} from "./chunk-LMCD6GOL.js";
+} from "./chunk-4OSHMCG2.js";
+import {
+  XhrFactory,
+  parseCookieValue
+} from "./chunk-RDHXSB74.js";
 import {
   DOCUMENT,
   IMAGE_CONFIG
-} from "./chunk-3RMJDPMR.js";
+} from "./chunk-ZVDZKNJT.js";
+import "./chunk-RSS3ODKE.js";
 import "./chunk-WDMUDEB6.js";
 export {
   APP_BASE_HREF,

@@ -1,0 +1,33 @@
+<section class="auth-container">
+    <div class="auth-card">
+        <h2 class="auth-title">Welcome Back</h2>
+        <p class="auth-subtitle">Log in to continue</p>
+
+        <div class="auth-form">
+            <label>Email</label>
+            <input
+                [(ngModel)]="email"
+                placeholder="Enter your email"
+                type="email"
+            />
+
+            <label>Password</label>
+            <input
+                [(ngModel)]="password"
+                placeholder="Enter your password"
+                type="password"
+            />
+
+            <button class="auth-btn" (click)="login()">Login</button>
+
+            @if(error) {
+            <p class="error">{{ error }}</p>
+            }
+        </div>
+
+        <p class="auth-footer">
+            Don’t have an account?
+            <a routerLink="/register">Register here</a>
+        </p>
+    </div>
+</section>
