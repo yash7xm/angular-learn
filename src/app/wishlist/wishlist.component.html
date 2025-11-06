@@ -1,0 +1,46 @@
+<section class="wishlist-container">
+    <h2 class="wishlist-title">❤️ Your Wishlist</h2>
+
+    <!-- Empty state -->
+    @if (wishlistItems.length === 0) {
+    <div class="empty-state">
+        <mat-icon>favorite_border</mat-icon>
+        <p>No houses in your wishlist yet!</p>
+        <a routerLink="/" class="go-home">Browse Houses</a>
+    </div>
+    }
+
+    <!-- Wishlist items -->
+    @if (wishlistItems.length > 0) {
+    <div class="wishlist-grid">
+        @for (house of wishlistItems; track house.id) {
+        <div class="wishlist-card">
+            <div class="image-wrapper">
+                <img
+                    [src]="house.photo"
+                    alt="{{ house.name }}"
+                    class="wishlist-photo"
+                    crossorigin
+                />
+                <button
+                    class="remove-btn"
+                    (click)="removeFromWishlist(house.id)"
+                    title="Remove from wishlist"
+                >
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+
+            <div class="wishlist-details">
+                <h3>{{ house.name }}</h3>
+                <p>{{ house.city }}, {{ house.state }}</p>
+
+                <a [routerLink]="['/details', house.id]" class="details-btn">
+                    View Details
+                </a>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</section>
