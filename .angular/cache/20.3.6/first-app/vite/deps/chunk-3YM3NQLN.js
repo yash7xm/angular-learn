@@ -1,9 +1,9 @@
 import {
+  isPlatformBrowser
+} from "./chunk-SPODMZWZ.js";
+import {
   BidiModule
 } from "./chunk-LEBVC2WS.js";
-import {
-  isPlatformBrowser
-} from "./chunk-35OHZLTR.js";
 import {
   APP_ID,
   ApplicationRef,
@@ -3248,4 +3248,4 @@ export {
   AriaDescriber,
   MatCommonModule
 };
-//# sourceMappingURL=chunk-Y6ZP7LYF.js.map
+//# sourceMappingURL=chunk-3YM3NQLN.js.map

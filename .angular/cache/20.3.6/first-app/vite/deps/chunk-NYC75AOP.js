@@ -6,7 +6,7 @@ import {
   getDOM,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-35OHZLTR.js";
+} from "./chunk-SPODMZWZ.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -4663,7 +4663,6 @@ function provideClientHydration(...features) {
 var VERSION = new Version("20.3.6");
 
 export {
-  HttpClient,
   EventManagerPlugin,
   DomEventsPlugin,
   EVENT_MANAGER_PLUGINS,
@@ -4679,6 +4678,7 @@ export {
   provideProtractorTestingSupport,
   platformBrowser,
   BrowserModule,
+  HttpClient,
   Meta,
   Title,
   enableDebugTools,
@@ -4713,4 +4713,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-RDM65AQ4.js.map
+//# sourceMappingURL=chunk-NYC75AOP.js.map

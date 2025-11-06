@@ -1,0 +1,73 @@
+<article class="listing-details">
+    <div class="details-header">
+        <div class="details-info">
+            <button class="back-btn" (click)="goBack()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <div>
+                <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
+                <p class="listing-location">
+                    <mat-icon>location_on</mat-icon>
+                    {{ housingLocation?.city }}, {{ housingLocation?.state }}
+                </p>
+            </div>
+        </div>
+        <img
+            class="listing-photo"
+            [src]="housingLocation?.photo"
+            alt="Exterior photo of {{ housingLocation?.name }}"
+            crossorigin
+        />
+    </div>
+
+    <section class="listing-features card">
+        <h2 class="section-heading">🏠 About this property</h2>
+        <ul>
+            <li>
+                <mat-icon>home</mat-icon>
+                Units available:
+                <span>{{ housingLocation?.availableUnits }}</span>
+            </li>
+            <li>
+                <mat-icon>wifi</mat-icon>
+                Wifi:
+                <span>{{
+                    housingLocation?.wifi ? "Available" : "Not available"
+                }}</span>
+            </li>
+            <li>
+                <mat-icon>local_laundry_service</mat-icon>
+                Laundry:
+                <span>{{
+                    housingLocation?.laundry ? "Available" : "Not available"
+                }}</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="listing-apply card">
+        <h2 class="section-heading">📝 Apply to live here</h2>
+        <form [formGroup]="applyForm" (submit)="submitApplication()">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input
+                    id="first-name"
+                    type="text"
+                    formControlName="firstName"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text" formControlName="lastName" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" formControlName="email" />
+            </div>
+
+            <button type="submit" class="primary">Apply now</button>
+        </form>
+    </section>
+</article>
