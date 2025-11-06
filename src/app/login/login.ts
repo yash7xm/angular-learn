@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -14,6 +15,7 @@ export class LoginComponent {
   email = '';
   password = '';
   error = '';
+  loading = false; // ✅ added
 
   constructor(private auth: AuthService, private router: Router) { }
 
@@ -23,12 +25,18 @@ export class LoginComponent {
       return;
     }
 
+    this.error = '';
+    this.loading = true; // ✅ show spinner
+
     this.auth.login(this.email, this.password).subscribe({
       next: () => {
-        alert('✅ Login successful!');
-        this.router.navigate(['/']);
+        setTimeout(() => { // simulate slight delay for smooth UX
+          this.loading = false;
+          this.router.navigate(['/']);
+        }, 1000);
       },
       error: (err) => {
+        this.loading = false;
         this.error = '❌ Invalid email or password.';
         console.error(err);
       }

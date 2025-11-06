@@ -9,6 +9,7 @@
                 [(ngModel)]="email"
                 placeholder="Enter your email"
                 type="email"
+                [disabled]="loading"
             />
 
             <label>Password</label>
@@ -16,11 +17,21 @@
                 [(ngModel)]="password"
                 placeholder="Enter your password"
                 type="password"
+                [disabled]="loading"
             />
 
-            <button class="auth-btn" (click)="login()">Login</button>
+            <button class="auth-btn" (click)="login()" [disabled]="loading">
+                @if (loading) {
+                <span class="spinner"></span>
+                Logging in... } @else { Login }
+            </button>
 
-            @if(error) {
+            @if (loading) {
+            <div class="loading-message">
+                <div class="loading-spinner"></div>
+                <p>Logging you in... please wait</p>
+            </div>
+            } @if (error) {
             <p class="error">{{ error }}</p>
             }
         </div>
