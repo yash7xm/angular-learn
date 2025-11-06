@@ -1,23 +1,39 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { HousingLocationInfo } from './housinglocation';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: 'root'
 })
-
 export class HousingService {
-    url = 'http://localhost:3000/locations';
+    private url = 'assets/houses.json'; // 👈 local file path
+
+    constructor(private http: HttpClient) { }
+
+    // Fetch all housing locations
     async getAllHousingLocations(): Promise<HousingLocationInfo[]> {
-        const data = await fetch(this.url);
-        return (await data.json()) ?? [];
+        try {
+            const data$ = this.http.get<HousingLocationInfo[]>(this.url);
+            return await firstValueFrom(data$);
+        } catch (err) {
+            console.error('Error loading local houses.json', err);
+            return [];
+        }
     }
+
+    // Get one house by ID
     async getHousingLocationById(id: number): Promise<HousingLocationInfo | undefined> {
-        const data = await fetch(`${this.url}?id=${id}`);
-        const locationJson = await data.json();
-        return locationJson[0] ?? {};
+        try {
+            const houses = await this.getAllHousingLocations();
+            return houses.find(house => house.id === id);
+        } catch (err) {
+            console.error('Error fetching housing by ID', err);
+            return undefined;
+        }
     }
+
     submitApplication(firstName: string, lastName: string, email: string) {
-        // tslint:disable-next-line
-        console.log(firstName, lastName, email);
+        console.log('Application submitted for:', firstName, lastName, email);
     }
 }
