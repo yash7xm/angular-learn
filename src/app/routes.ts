@@ -4,6 +4,7 @@ import { Details } from './details/details';
 import { WishlistComponent } from './wishlist/wishlist';
 import { LoginComponent } from './login/login';
 import { RegisterComponent } from './register/register';
+import { AuthGuard } from './auth.guard';
 
 const routeConfig: Routes = [
     {
@@ -19,7 +20,8 @@ const routeConfig: Routes = [
     {
         path: 'wishlist',
         component: WishlistComponent,
-        title: 'Wishlist'
+        title: 'Wishlist',
+        canActivate: [AuthGuard]
     },
     {
         path: 'login',
