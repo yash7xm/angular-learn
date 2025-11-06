@@ -35,7 +35,7 @@ import { AuthService } from './auth.service';
               <a routerLink="/login" class="btn login-btn">Login</a>
               <a routerLink="/register" class="btn register-btn">Register</a>
             } @else {
-              <span class="user-email">{{ auth.getCurrentUserEmail() }}</span>
+              <span class="user-email">{{ auth.getCurrentUserName() }}</span>
               <button class="btn logout-btn" (click)="logout()">Logout</button>
             }
           </div>
