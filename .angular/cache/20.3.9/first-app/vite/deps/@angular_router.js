@@ -1,6 +1,6 @@
 import {
   Title
-} from "./chunk-NYC75AOP.js";
+} from "./chunk-DGWF3QUB.js";
 import {
   HashLocationStrategy,
   LOCATION_INITIALIZED,
@@ -8,7 +8,7 @@ import {
   LocationStrategy,
   PathLocationStrategy,
   ViewportScroller
-} from "./chunk-SPODMZWZ.js";
+} from "./chunk-LMCD6GOL.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
@@ -64,6 +64,7 @@ import {
   filter,
   finalize,
   first,
+  formatRuntimeError,
   from,
   inject,
   input,
@@ -114,7 +115,7 @@ import {
   ɵɵloadQuery,
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
-} from "./chunk-OSQAIMCL.js";
+} from "./chunk-3RMJDPMR.js";
 import {
   __async,
   __spreadProps,
@@ -612,7 +613,7 @@ var UrlParser = class {
       if (next !== "/" && next !== ")" && next !== ";") {
         throw new RuntimeError(4010, (typeof ngDevMode === "undefined" || ngDevMode) && `Cannot parse url '${this.url}'`);
       }
-      let outletName = void 0;
+      let outletName;
       if (path.indexOf(":") > -1) {
         outletName = path.slice(0, path.indexOf(":"));
         this.capture(outletName);
@@ -621,7 +622,7 @@ var UrlParser = class {
         outletName = PRIMARY_OUTLET;
       }
       const children = this.parseChildren();
-      segments[outletName] = Object.keys(children).length === 1 ? children[PRIMARY_OUTLET] : new UrlSegmentGroup([], children);
+      segments[outletName ?? PRIMARY_OUTLET] = Object.keys(children).length === 1 && children[PRIMARY_OUTLET] ? children[PRIMARY_OUTLET] : new UrlSegmentGroup([], children);
       this.consumeOptional("//");
     }
     return segments;
@@ -1893,7 +1894,7 @@ var RouterOutlet = class _RouterOutlet {
    *
    * When unset, the value of the token is `undefined` by default.
    */
-  routerOutletData = input(void 0, ...ngDevMode ? [{
+  routerOutletData = input(...ngDevMode ? [void 0, {
     debugName: "routerOutletData"
   }] : []);
   parentContexts = inject(ChildrenOutletContexts);
@@ -4735,7 +4736,9 @@ var Router = class _Router {
   parseUrl(url) {
     try {
       return this.urlSerializer.parse(url);
-    } catch {
+    } catch (e) {
+      this.console.warn(formatRuntimeError(4018, ngDevMode && `Error parsing URL ${url}. Falling back to '/' instead. 
+` + e));
       return this.urlSerializer.parse("/");
     }
   }
@@ -6035,7 +6038,7 @@ function mapToCanDeactivate(providers) {
 function mapToResolve(provider) {
   return (...params) => inject(provider).resolve(...params);
 }
-var VERSION = new Version("20.3.6");
+var VERSION = new Version("20.3.10");
 export {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -6122,7 +6125,7 @@ export {
 @angular/router/fesm2022/router_module.mjs:
 @angular/router/fesm2022/router.mjs:
   (**
-   * @license Angular v20.3.6
+   * @license Angular v20.3.10
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)

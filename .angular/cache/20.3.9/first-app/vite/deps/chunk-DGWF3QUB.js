@@ -6,7 +6,7 @@ import {
   getDOM,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-SPODMZWZ.js";
+} from "./chunk-LMCD6GOL.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -90,7 +90,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-OSQAIMCL.js";
+} from "./chunk-3RMJDPMR.js";
 import {
   __async,
   __objRest,
@@ -2556,12 +2556,6 @@ var FetchBackend = class _FetchBackend {
   })?.fetch ?? ((...args) => globalThis.fetch(...args));
   ngZone = inject(NgZone);
   destroyRef = inject(DestroyRef);
-  destroyed = false;
-  constructor() {
-    this.destroyRef.onDestroy(() => {
-      this.destroyed = true;
-    });
-  }
   handle(request) {
     return new Observable((observer) => {
       const aborter = new AbortController();
@@ -2631,7 +2625,7 @@ var FetchBackend = class _FetchBackend {
         let canceled = false;
         yield this.ngZone.runOutsideAngular(() => __async(this, null, function* () {
           while (true) {
-            if (this.destroyed) {
+            if (this.destroyRef.destroyed) {
               yield reader.cancel();
               canceled = true;
               break;
@@ -2782,7 +2776,7 @@ var FetchBackend = class _FetchBackend {
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(FetchBackend, [{
     type: Injectable
-  }], () => [], null);
+  }], null, null);
 })();
 var FetchFactory = class {
 };
@@ -4660,9 +4654,10 @@ function provideClientHydration(...features) {
   }
   return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideZoneJsCompatibilityDetector() : [], typeof ngDevMode !== "undefined" && ngDevMode ? provideEnabledBlockingInitialNavigationDetector() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
 }
-var VERSION = new Version("20.3.6");
+var VERSION = new Version("20.3.10");
 
 export {
+  HttpClient,
   EventManagerPlugin,
   DomEventsPlugin,
   EVENT_MANAGER_PLUGINS,
@@ -4678,7 +4673,6 @@ export {
   provideProtractorTestingSupport,
   platformBrowser,
   BrowserModule,
-  HttpClient,
   Meta,
   Title,
   enableDebugTools,
@@ -4708,9 +4702,9 @@ export {
 @angular/common/fesm2022/http.mjs:
 @angular/platform-browser/fesm2022/platform-browser.mjs:
   (**
-   * @license Angular v20.3.6
+   * @license Angular v20.3.10
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-NYC75AOP.js.map
+//# sourceMappingURL=chunk-DGWF3QUB.js.map
