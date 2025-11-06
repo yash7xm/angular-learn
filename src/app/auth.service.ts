@@ -33,7 +33,7 @@ export class AuthService {
             map(users => {
                 if (users.length > 0) {
                     const user = users[0];
-                    localStorage.setItem(this.tokenKey, 'fake-jwt-token');
+                    localStorage.setItem(this.tokenKey, 'jwt-token');
                     localStorage.setItem(this.userEmailKey, user.email);
                     this.isLoggedIn$.next(true);
                     return true;
