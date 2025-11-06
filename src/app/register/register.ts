@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
@@ -14,6 +15,7 @@ export class RegisterComponent {
   email = '';
   password = '';
   error = '';
+  loading = false; // ✅ for showing spinner
 
   constructor(private auth: AuthService, private router: Router) { }
 
@@ -23,12 +25,18 @@ export class RegisterComponent {
       return;
     }
 
+    this.error = '';
+    this.loading = true; // show spinner
+
     this.auth.register(this.email, this.password).subscribe({
       next: () => {
-        alert('✅ Registration successful! Please log in.');
-        this.router.navigate(['/login']);
+        setTimeout(() => {
+          this.loading = false;
+          this.router.navigate(['/login']);
+        }, 1000); // simulate a short delay for smoother UX
       },
       error: (err) => {
+        this.loading = false;
         this.error = '❌ Registration failed. Please try again.';
         console.error(err);
       }
